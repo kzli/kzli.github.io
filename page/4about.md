@@ -11,9 +11,7 @@ type: page
 
 ## 关于我
 
-一个农村人
-
-* 1995 ~ 
+*  
 
 ## 联系我
 
@@ -26,7 +24,6 @@ type: page
 
 ## 友情链接
 
-[码云](http://git.oschina.net/kzli)
 
 ## Comments
 
