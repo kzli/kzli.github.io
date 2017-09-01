@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Stream API快速入门"
+title:  "跟上Java8 - Stream API快速入门"
 categories: Java
 tags:  Java Java8
 author: kzli
