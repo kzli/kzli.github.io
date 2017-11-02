@@ -1,0 +1,39 @@
+<link rel="stylesheet" href="photo-sphere-viewer.min.css">
+
+<div id="psv"></div>
+
+<script src="three.min.js"></script>
+<script src="CanvasRenderer.js"></script>
+<script src="Projector.js"></script>
+<script src="DeviceOrientationControls.js"></script>
+<script src="D.min.js"></script>
+<script src="uevent.min.js"></script>
+<script src="doT.min.js"></script>
+<script src="photo-sphere-viewer.min.js"></script>
+
+<script>
+  var viewer = PhotoSphereViewer({
+    container: 'psv', //element id
+    panorama: 'img.jpg', //
+	time_anim: false,
+	gyroscope: true, //gyro navbar
+	navbar: [
+		//'autorotate',
+		'zoom',
+		//'markers',
+		'gyroscope',
+		//'caption',
+		'fullscreen'
+	  ]
+  });
+  
+  //start gyro
+  viewer.on('ready', function() {
+	  /*
+	  setTimeout(function() {
+		viewer.startGyroscopeControl();
+	  }, 1000);
+	  */
+	  PhotoSphereViewer.SYSTEM.deviceOrientationSupported.promise.then(function() { viewer.startGyroscopeControl(); });
+  });
+</script>
