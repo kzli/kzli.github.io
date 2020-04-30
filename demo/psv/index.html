@@ -1,5 +1,16 @@
 <link rel="stylesheet" href="photo-sphere-viewer.min.css">
-
+<style>
+	body,html{
+		margin: 0;
+	}
+	#file{
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 999;
+	}
+</style>
+<input type="file" id="file">
 <div id="psv"></div>
 
 <script src="three.min.js"></script>
@@ -14,7 +25,7 @@
 <script>
   var viewer = PhotoSphereViewer({
     container: 'psv', //element id
-    panorama: 'http://musicz.qiniudn.com/PANO_20180120_160308.min.jpg', //
+    panorama: '', //
 	time_anim: false,
 	gyroscope: true, //gyro navbar
 	navbar: [
@@ -29,6 +40,31 @@
   
   //start gyro
   viewer.on('ready', function() {
+	  /*
+	  setTimeout(function() {
+		viewer.startGyroscopeControl();
+	  }, 1000);
+	  */
 	  PhotoSphereViewer.SYSTEM.deviceOrientationSupported.promise.then(function() { viewer.startGyroscopeControl(); });
   });
+	
+	function blobToDataURL(blob,cb) {
+		var reader = new FileReader();
+			reader.onload = function (evt) {
+			var base64 = evt.target.result
+			cb(base64)
+		};
+		reader.readAsDataURL(blob);
+	}
+ 
+	var file = document.getElementById("file");
+	file.onchange = function(){
+		var img = this.files[0];
+		if(img){
+			var url = URL.createObjectURL(img);
+			var base64 = blobToDataURL(img,function(base64Url) {
+				viewer.setPanorama(base64Url);
+			})
+		}
+	}
 </script>
