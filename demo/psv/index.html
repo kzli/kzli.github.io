@@ -1,6 +1,13 @@
-<link rel="stylesheet" href="photo-sphere-viewer.min.css">
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<link rel="stylesheet" href="photo-sphere-viewer.min.css">
+	<title>Photo-Sphere-Viewer</title>
+</head>
 <style>
-	body,html{
+	html,body{
 		margin: 0;
 	}
 	#file{
@@ -10,9 +17,11 @@
 		z-index: 999;
 	}
 </style>
-<input type="file" id="file">
-<div id="psv"></div>
-
+<body>
+	<input type="file" id="file">
+	<div id="psv"></div>
+</body>
+</html>
 <script src="three.min.js"></script>
 <script src="CanvasRenderer.js"></script>
 <script src="Projector.js"></script>
