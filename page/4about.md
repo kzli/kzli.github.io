@@ -15,7 +15,6 @@ type: page
 
 ## 联系我
 
-* GitHub：[kzli](https://github.com/kzli)
 * email：kzli0127@gmail.com
 
 ## 关于本站
